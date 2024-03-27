@@ -5,7 +5,7 @@ import CustomerCard from "../../components/organisms/CustomerCard";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import axios from "axios";
-import CustomersProps from "@typings/interface/CustomersProps";
+import CustomersProps from "../../typings/interface/CustomersProps";
 
 const AddCustomer = () => {
     const navigate = useNavigate();
@@ -50,7 +50,7 @@ const AddCustomer = () => {
             return;
         }
         axios.put(`http://localhost:3000/customer/${custId}`, customers)
-            .then(response => {
+            .then(() => {
                 navigate("/");
             })
             .catch(error => {
@@ -69,7 +69,7 @@ const AddCustomer = () => {
             return;
         }
         axios.post('http://localhost:3000/customer', customers)
-            .then(response => {
+            .then(() => {
                 navigate("/");
             })
             .catch(error => {

@@ -1,4 +1,4 @@
-import CustomersProps from "./CustomersProps"; // Sesuaikan dengan struktur proyek Anda
+import CustomersProps from "./CustomersProps"; 
 
 export default interface CustomerFormProps {
     customers: CustomersProps,

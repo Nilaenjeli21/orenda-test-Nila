@@ -14,7 +14,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useNavigate } from 'react-router-dom';
-import CustomersProps from "@typings/interface/CustomersProps";
+import CustomersProps from "../../typings/interface/CustomersProps";
 
 interface Column {
     id: 'name' | 'phone' | 'email' | 'address' | 'action';
@@ -78,7 +78,7 @@ const TableCustomer = () => {
     const handleDeleteCustomer = () => {
         if (clickedRowId !== null) {
             axios.delete(`http://localhost:3000/customer/${clickedRowId}`)
-                .then(response => {
+                .then(() => {
                     setRows(rows.filter(customer => customer.custId !== clickedRowId));
                 })
                 .catch(error => {
@@ -95,7 +95,7 @@ const TableCustomer = () => {
         setFilteredRows(results);
     }, [searchValue, rows]);
 
-    const handleChangePage = (event: unknown, newPage: number) => {
+    const handleChangePage = (_event: unknown, newPage: number) => {
         setPage(newPage);
     };
 
@@ -124,8 +124,8 @@ const TableCustomer = () => {
                 disableClearable
                 options={rows}
                 sx={{ width: 200, m: 1 }}
-                onChange={(event, value) => setSelectedRow(value)}
-                onInputChange={(event, newInputValue) => {
+                onChange={(_event, value) => setSelectedRow(value)}
+                onInputChange={(_event, newInputValue) => {
                     setSearchValue(newInputValue);
                 }}
                 value={selectedRow}

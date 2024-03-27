@@ -1,7 +1,7 @@
 import { Card, CardContent, Grid, Typography, Stack, Divider } from "@mui/material";
 import CustomerForm from "../molecules/CustomerForm";
 import Button from "../atoms/Button";
-import CustomerFormProps from "@typings/interface/CustomerFormProps"
+import CustomerFormProps from "../../typings/interface/CustomerFormProps"
 
 interface CustomerCardProps {
     customerFormProps: CustomerFormProps
@@ -30,11 +30,18 @@ const CustomerCard = ({ customerFormProps, act, handleAddCustomer, handleEditCus
                 <Divider />
             </Grid>
             <Stack direction="row" spacing={2} sx={{ position: 'absolute', bottom: '20px', right: '20px' }}>
-                <Button variant="outlined" onClick={() => navigate("/")}>Cancel</Button>
-                <Button variant="contained" onClick={act === 'add' ? handleAddCustomer : handleEditCustomer} color="primary">
-                    {act === 'add' ? "Create New" : "Update"}
-                </Button>
-            </Stack>
+            <Button variant="outlined" onClick={() => navigate("/")}>
+                Cancel
+            </Button>
+            <Button
+                variant="contained"
+                onClick={act === 'add' ? handleAddCustomer : handleEditCustomer}
+                color="primary"
+            >
+                {act === 'add' ? "Create New" : "Update"}
+            </Button>
+        </Stack>
+
         </Card>
     );
 };
