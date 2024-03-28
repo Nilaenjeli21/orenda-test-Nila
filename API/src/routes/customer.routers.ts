@@ -13,7 +13,7 @@ class CustomerRoutes {
     // Create a new Customer
     this.router.post("/", this.controller.create);
 
-    // Retrieve all Customers
+    // Retrieve all Customer
     this.router.get("/", this.controller.findAll);
 
     // Retrieve a single Customer with id
